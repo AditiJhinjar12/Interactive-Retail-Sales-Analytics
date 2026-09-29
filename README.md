@@ -1,63 +1,45 @@
-# InsightView: Interactive Retail Sales Analytics Dashboard
+# InsightView — Kaggle Superstore Sales & Profitability Dashboard
 
-An interactive dashboard that turns retail transaction data into clear, decision-ready insights on sales, profit, and customer behavior.
+**InsightView** is a single self-contained HTML interactive retail sales dashboard designed for analyzing the Kaggle "Superstore" dataset (`vivek468/superstore-dataset-final`).
 
-**[Live Demo]([link])** | **[Dashboard Screenshot](#preview)**
+---
 
-## Problem Statement
-A retail store needs to know which products, regions, and customer segments drive profit, and where it is losing money despite strong sales. This dashboard answers those questions in one place.
+## 🚀 How to Run
 
-## Dataset
-- **Source:** [Superstore Dataset (Kaggle)](https://www.kaggle.com/datasets/vivek468/superstore-dataset-final)
-- **Size:** [X] orders, [Y] columns, [start year] to [end year]
-- **Key fields:** Order Date, Segment, Region, State, Category, Sub-Category, Sales, Quantity, Discount, Profit
+1. Double-click **`index.html`** to open it directly in any browser (Chrome, Safari, Edge, Firefox), or
+2. Run a simple local server if preferred:
+   ```bash
+   python3 -m http.server 8080
+   ```
+   Then navigate to `http://localhost:8080/index.html`.
 
-## Tools Used
-[Power BI / Tableau / HTML + JavaScript] | [SQL] | Python (pandas) | Excel
+---
 
-## Approach
-1. **Data cleaning:** [handled missing values, removed duplicates, fixed date formats and data types]
-2. **Analysis:** [SQL / pandas aggregations by category, region, segment, and month]
-3. **Dashboard design:** built KPI cards, trend and comparison charts, and interactive filters
-4. **Insights:** validated key figures against the raw data before summarizing findings
+## 📁 Files in this Folder
 
-## Dashboard Features
-- **KPI cards:** Total Sales, Profit, Profit Margin %, Orders, Average Order Value, YoY Growth
-- **Trends:** monthly and yearly sales and profit
-- **Breakdowns:** by category, sub-category, region, and customer segment
-- **Top products:** best sellers vs most profitable
-- **Discount analysis:** how discount levels affect profit
-- **Filters:** date range, region, category, segment
+- **`index.html`**: The complete, self-contained dashboard application (includes HTML, CSS styling, Chart.js visualizations, Lucide icons, and the full data parsing & insights engine).
+- **`superstore_sample.csv`**: A 1,200-row sample CSV formatted to match the exact schema of the Kaggle Superstore dataset.
+- **`build_app.py`**: Python script used to assemble and update the dashboard.
+- **`generate_full_sample.py`**: Script used to generate synthetic multi-year Superstore data.
 
-## Key Insights
-1. [e.g., Category X generates Y% of sales but only Z% of profit]
-2. [e.g., Discounts above X% lead to negative profit]
-3. [e.g., Sales peak in Nov to Dec each year]
-4. [e.g., Region X is the top performer while Region Y lags]
+---
 
-## Preview
-![Dashboard Screenshot](images/dashboard.png)
+## 📊 Dashboard Features
 
-## How to Run
-```bash
-git clone https://github.com/[your-username]/[repo-name].git
-cd [repo-name]
-# Power BI/Tableau: open the .pbix/.twbx file
-# HTML version: open index.html and load the dataset CSV
-```
-
-## Project Structure
-```
-├── data/          # dataset (or link to source)
-├── sql/           # cleaning and analysis queries
-├── notebooks/     # Python exploration
-├── dashboard/     # .pbix / .twbx / index.html
-├── images/        # screenshots
-└── README.md
-```
-
-## What I Learned
-[e.g., cleaning real-world data, writing DAX/SQL aggregations, turning numbers into business recommendations]
-
-## Author
-**Aditi Jhinjar** | [LinkedIn](https://linkedin.com/in/aditi-jhinjar-63040a28b) | [GitHub](https://github.com/AditiJhinjar12)
+- **In-Browser CSV Parsing**: Supports drag-and-drop & file picker, handles UTF-8 / Latin-1 / Windows-1252 encodings, and maps columns automatically.
+- **Pre-Loaded Demo Data**: Displays labeled sample data (`DEMO DATA - not real`) until a CSV is uploaded.
+- **KPI Cards**: Total Sales, Total Profit, Profit Margin %, Total Orders, Average Order Value (AOV), and YoY Growth.
+- **4 Automated Strategic Insights**:
+  1. *Profit Leakage Alert* (identifies unprofitable sub-categories and root causes)
+  2. *Discount Cliff Analysis* (shows margin decay across discount tiers)
+  3. *Regional Performance* (ranks territory revenue & profit margins)
+  4. *Segment & Seasonality Surge* (evaluates customer segment velocity and Q4 holiday peaks)
+- **6 Interactive Visualizations**:
+  - Monthly Revenue & Profit Dynamics (Time series with view toggles)
+  - Sales & Profit by Category & Sub-Category
+  - Sales & Profit by Region
+  - Customer Segment Share & Margin %
+  - Discount vs. Profitability Danger Curve
+  - Top 10 Ranked Products (by Sales, Profit, or Loss)
+- **Interactive Data Explorer**: Searchable, sortable, and paginated transaction table.
+- **Theme Switcher**: Dark Mode and Light Mode with instant toggle.
